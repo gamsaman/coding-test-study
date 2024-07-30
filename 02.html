@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES";
+        let maxVal;
+        let smallValA;
+        let smallValB;
+        if (a > b) {
+          maxVal = a;
+          smallValA = b;
+          smallValB = c;
+        } else {
+          maxVal = b;
+          smallValA = a;
+          smallValB = c;
+        }
+        if (c > maxVal) {
+          maxVal = c;
+          smallValA = a;
+          smallValB = b;
+        }
+
+        if (maxVal < smallValA + smallValB) {
+          answer = "NO";
+        }
+
+        console.log(answer);
+      }
+
+      console.log(solution(13, 33, 24));
+    </script>
+  </body>
+</html>
