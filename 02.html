@@ -8,31 +8,25 @@
       function solution(a, b, c) {
         let answer = "YES";
         let maxVal;
-        let smallValA;
-        let smallValB;
+        let total;
         if (a > b) {
           maxVal = a;
-          smallValA = b;
-          smallValB = c;
         } else {
           maxVal = b;
-          smallValA = a;
-          smallValB = c;
         }
         if (c > maxVal) {
           maxVal = c;
-          smallValA = a;
-          smallValB = b;
         }
+        total = a + b + c - maxVal;
 
-        if (maxVal < smallValA + smallValB) {
+        if (maxVal > total) {
           answer = "NO";
         }
 
         console.log(answer);
       }
 
-      console.log(solution(13, 33, 24));
+      console.log(solution(13, 33, 13));
     </script>
   </body>
 </html>
