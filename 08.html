@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr;
+        let sum = 0;
+
+        arr.forEach((elem) => {
+          sum += elem;
+        });
+        const x = sum - 100;
+        let first;
+        let second;
+
+        loop: for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if (i === j) continue;
+            if (arr[i] + arr[j] === x) {
+              first = arr[i];
+              second = arr[j];
+              break loop;
+            }
+          }
+        }
+
+        const firstIndex = arr.indexOf(first);
+        arr.splice(firstIndex, 1);
+        const secondIndex = arr.indexOf(second);
+        arr.splice(secondIndex, 1);
+
+        return answer;
+      }
+
+      let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
