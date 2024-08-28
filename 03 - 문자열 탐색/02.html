@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        let str = "";
+
+        for (let x of s) {
+          const code = x.charCodeAt();
+          if (code >= 65 && code <= 90) {
+            str += x.toLowerCase();
+          }
+          if (code >= 97 && code <= 122) {
+            str += x;
+          }
+        }
+
+        for (let i = 0; i < Math.floor(str.length / 2); i++) {
+          if (str[i] !== str[str.length - 1 - i]) {
+            answer = "NO";
+          }
+        }
+
+        return answer;
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
