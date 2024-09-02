@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer;
+        answer = Number.MIN_SAFE_INTEGER;
+        let sum = Number.MIN_SAFE_INTEGER;
+
+        const newArr = arr.map((item) => item.toString());
+
+        for (let i = 0; i < newArr.length; i++) {
+          let temp = 0;
+          for (let j = 0; j < newArr[i].length; j++) {
+            temp += Number(newArr[i][j]);
+          }
+          if (temp >= sum && arr[i] > answer) {
+            sum = temp;
+            answer = arr[i];
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [460, 603, 40, 521, 123, 235, 1234];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
