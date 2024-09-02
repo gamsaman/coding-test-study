@@ -7,6 +7,28 @@
     <script>
       function solution(s, t) {
         let answer = [];
+        let temp = 1000;
+
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === t) {
+            temp = 0;
+          } else {
+            temp += 1;
+          }
+          answer.push(temp);
+        }
+
+        temp = 1000;
+        for (let i = s.length - 1; i >= 0; i--) {
+          if (s[i] === t) {
+            temp = 0;
+          } else {
+            temp += 1;
+          }
+          if (temp < answer[i]) {
+            answer[i] = temp;
+          }
+        }
 
         return answer;
       }
