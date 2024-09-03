@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+
+        product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+        for (let i = 0; i < product.length; i++) {
+          const pCoast = product[i][0] / 2;
+          const dCoast = product[i][1];
+          let tCoast = pCoast + dCoast;
+          let temp = 1;
+          for (let j = 0; j < product.length; j++) {
+            if (i === j) continue;
+            tCoast += product[j][0] + product[j][1];
+            if (tCoast <= m) temp++;
+          }
+          answer = Math.max(answer, temp);
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [2, 12],
+        [8, 4],
+        [12, 1],
+        [4, 5],
+        [4, 3],
+      ];
+      console.log(solution(33, arr));
+    </script>
+  </body>
+</html>

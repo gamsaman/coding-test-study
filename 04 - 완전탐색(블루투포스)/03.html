@@ -23,8 +23,10 @@
             }
             if (idx1 < idx2) cnt++;
           }
-          if (cnt === test.length - 1) return true;
-          else return false;
+          if (cnt === test.length - 1) {
+            console.log(student1, student2);
+            return true;
+          } else return false;
         }
 
         for (let i = 0; i < test[0].length; i++) {
