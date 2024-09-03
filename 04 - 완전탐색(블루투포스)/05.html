@@ -8,25 +8,19 @@
       function solution(n, k, card) {
         let answer;
         let record = [];
-
         for (let x = 0; x < card.length; x++) {
           let card1 = card[x];
           for (let y = x + 1; y < card.length; y++) {
-            if (x === y) continue;
             let card2 = card[y];
             for (let z = y + 1; z < card.length; z++) {
-              if ((x === z) | (y === z)) continue;
               let card3 = card[z];
               temp = card1 + card2 + card3;
               record.push(temp);
             }
           }
         }
-
-        record = [...new Set(record)];
-        record.sort((a, b) => b - a);
+        record = [...new Set(record)].sort((a, b) => b - a);
         answer = record[k - 1];
-
         return answer;
       }
 

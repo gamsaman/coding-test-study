@@ -19,6 +19,7 @@
             if (i === j) continue;
             tCoast += product[j][0] + product[j][1];
             if (tCoast <= m) temp++;
+            else break;
           }
           answer = Math.max(answer, temp);
         }
