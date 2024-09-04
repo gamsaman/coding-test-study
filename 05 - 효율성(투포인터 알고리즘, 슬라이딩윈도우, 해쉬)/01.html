@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr1, arr2) {
+        let answer = [];
+        const longLength = Math.max(arr1.length, arr2.length);
+
+        for (let i = 0; i < longLength; i++) {
+          let a = arr1[i];
+          let b = arr2[i];
+
+          if (a <= b) {
+            answer.push(a);
+            answer.push(b);
+          } else if (a > b) {
+            answer.push(b);
+            answer.push(a);
+          } else if (a === undefined) {
+            answer.push(b);
+          } else if (b === undefined) {
+            answer.push(a);
+          }
+        }
+
+        return answer;
+      }
+
+      let a = [1, 3, 5];
+      let b = [2, 3, 6, 7, 9];
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
