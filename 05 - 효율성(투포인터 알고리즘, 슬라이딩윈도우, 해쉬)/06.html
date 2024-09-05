@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let i = 0;
+        let j = 0;
+        let beforeCnt = Number.MIN_SAFE_INTEGER;
+        let cnt = 0;
+        let candidate = s[i];
+        const checked = [];
+
+        while (i < s.length) {
+          if (checked.includes(candidate)) {
+            i++;
+            candidate = s[i];
+            j = 0;
+            cnt = 0;
+          } else {
+            if (candidate === s[j]) {
+              cnt++;
+            }
+            j++;
+            if (j === s.length) {
+              if (cnt > beforeCnt) {
+                beforeCnt = cnt;
+                answer = candidate;
+              }
+              i++;
+              candidate = s[i];
+              j = 0;
+              cnt = 0;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let str = "BACBACCACCBDEDE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
