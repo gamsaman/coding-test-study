@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function compareMaps(map1, newT) {
+        for (let i = 0; i < map1.length; i++) {
+          if (map1[i] !== newT[i]) return false;
+        }
+
+        return true;
+      }
+      function solution(s, t) {
+        let answer = 0;
+        let n = s.length - (t.length - 1);
+        let i = 0;
+        let j = i + 1;
+        let word = s[i] + s[j];
+        let newT = t.split("").sort((a, b) => a.localeCompare(b));
+
+        while (i < n) {
+          j++;
+          word += s[j];
+          if (word.length === t.length) {
+            const map1 = word.split("").sort((a, b) => a.localeCompare(b));
+            if (compareMaps(map1, newT)) answer++;
+            i++;
+            j = i + 1;
+            word = s[i] + s[j];
+          }
+        }
+
+        return answer;
+      }
+
+      let a = "bacaAacbacDS";
+      let b = "abc";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>

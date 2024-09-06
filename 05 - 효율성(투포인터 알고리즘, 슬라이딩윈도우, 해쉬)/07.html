@@ -7,11 +7,47 @@
     <script>
       function solution(str1, str2) {
         let answer = "YES";
+        let n = str1.length;
+        let i = 0;
+        let j = 0;
+        let currentLetter;
+        let countA = 0;
+        let countB = 0;
+        let aLetters = [];
+
+        while (i < n) {
+          currentLetter = str1[i];
+          if (aLetters.includes(currentLetter)) {
+            i++;
+            j = 0;
+            countA = 0;
+            countB = 0;
+          } else {
+            if (currentLetter === str1[j]) {
+              countA++;
+            }
+            if (currentLetter === str2[j]) {
+              countB++;
+            }
+            if (j === str1.length - 1 && (countA + countB) % 2 !== 0) {
+              answer = "NO";
+              break;
+            }
+            j++;
+            if (j === str1.length) {
+              i++;
+              j = 0;
+              countA = 0;
+              countB = 0;
+            }
+          }
+        }
+
         return answer;
       }
 
-      let a = "AbaAeCe";
-      let b = "baeeACA";
+      let a = "AbaAeCeS";
+      let b = "baeeACAS";
       console.log(solution(a, b));
     </script>
   </body>
