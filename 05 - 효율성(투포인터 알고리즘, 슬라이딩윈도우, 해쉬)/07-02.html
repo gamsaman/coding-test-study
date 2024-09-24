@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str1, str2) {
+        let answer = "YES";
+        let sH = new Map();
+
+        for (let i = 0; i < str1.length; i++) {
+          if (sH.has(str1[i])) {
+            sH.set(str1[i], sH.get(str1[i]) + 1);
+          } else {
+            sH.set(str1[i], 1);
+          }
+        }
+
+        for (let i = 0; i < str2.length; i++) {
+          if (!sH.has(str2[i])) {
+            return "NO";
+          } else {
+            if (sH.get(str2[i]) === 0) {
+              return "NO";
+            }
+            sH.set(str2[i], sH.get(str2[i]) - 1);
+          }
+        }
+
+        return answer;
+      }
+
+      let a = "abaCC";
+      let b = "Caaab";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
